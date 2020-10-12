@@ -1,0 +1,7 @@
+*.sqllite
+*.pyc
+__pycache__
+env.py
+venv/
+.vscode/
+*.sqlite3
