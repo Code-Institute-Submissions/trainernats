@@ -1,0 +1,98 @@
+html {
+    height: 100%
+}
+
+body {
+    background: url("/media/nat arm up edited.jpg") no-repeat center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.logo-font{
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 2rem;
+}
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.classes-button {
+    background: white;
+    color: black;
+    min-width: 260px;
+}
+
+.btn-black {
+    background: white;
+    color: black;
+}
+
+.btn-outline-black {
+    background: black;
+    color: white !important; /* use important to override link colors for <a> elements */
+    border: 1px solid white;
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: white;
+    color: black !important;
+}
+
+.classes-button:hover,
+.classes-button:active,
+.classes-button:focus,
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
+
+.text-black {
+    color: #000 !important;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+.bg-black {
+    background: #000 !important;
+}
+
+.tagline {
+    color:white !important;
+}
+
+/* --------------------------------- Media Queries */
+
+/* Slightly larger container on XL screens */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 80%;
+    }
+}
+
+/* fixed top navbar only on medium and up */
+@media (min-width: 992px) {
+    .fixed-desktop-onl;y {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 164px;
+    }
+}
+
