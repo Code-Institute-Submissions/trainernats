@@ -42,24 +42,17 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <div class="col-1">
-                <img src="{% static 'tns oval.png' %}" alt="tns_logo"></div>
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><span class="d-none d-md-block bold">Trainer Nats Steele</span></h2>
-                </a>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link"> 
+                    <div class="logo-font text-black my-0 text-uppercase">
+                    Trainer Nats Steele
+                </div></a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <div class="row">
-                <ul>
-                    <li>about
-                    </li>
-                    <li>services
-
-                    </li>
-                </ul>
-            </div>
+                <a href="{% url 'home' %}" class="nav-link main-logo-link"> 
+                    <img src="{% static 'tns oval.png' %}" alt="tns_logo">
+                    </a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center">
                 <ul class="list-inline list-unstyled text-center text-lg-right my-0">
@@ -99,6 +92,15 @@
                     </li>
                 </ul>
             </div>
+        </div>
+        <div class="row bg-white">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+                {% include 'includes/mobile-top-header.html' %}
+                {% include 'includes/main-nav.html' %}
+            </nav>
         </div>
     </header>
         {% if messages %}

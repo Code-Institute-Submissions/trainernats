@@ -10,9 +10,24 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+#topnav {
+    background: white;
+}
+/*#topnav {
+    background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%) ;
+}*/
 .logo-font{
     font-family: 'Noto Sans', sans-serif;
     font-size: 2rem;
+    font-weight: bold;
+}
+
+
+.main-logo-link img{
+    width: 33%;
+    height: 100%;
+    margin: auto;
+    display: block;
 }
 /* from Bulma */
 .icon {
@@ -83,11 +98,11 @@ body {
 
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
-    .fixed-desktop-onl;y {
+    .fixed-desktop-only {
         position: fixed;
         top: 0;
         right: 0;
-        left: 0;
+        left: 0;2
         z-index: 1030;
     }
 
