@@ -1,0 +1,53 @@
+[33mcommit 6cc2e00cb68c833abf6f77a4d66bf40f7bd8b1ae[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Tue Dec 22 14:27:25 2020 +1300
+
+    added mobile header and main navbar, screen size less than lg added the company logo to the mobile navbar
+
+[33mcommit 37cb25b87c0aaa43c4bd0571fe6cb4b20707f28d[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Sat Dec 19 14:43:04 2020 +1300
+
+    added homepage header and css, images added to get a feel of the page
+
+[33mcommit 2ce5ac14e101b49b8a973d87086e851d622ba742[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Mon Dec 14 21:58:30 2020 +1300
+
+    added some test images and main page header
+
+[33mcommit f532106a574b1b291055551c7d29fd95e23d1c26[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Wed Dec 2 15:25:37 2020 +1300
+
+    added hompage content
+
+[33mcommit 78dca78285c6032b6efbd9bc9361fbde2e63fa4e[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Wed Oct 21 15:11:07 2020 +1300
+
+    added home app and templates
+
+[33mcommit 797c8b6140e31becad5b3b49c1357461a3600aa7[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Wed Oct 21 14:30:53 2020 +1300
+
+    added blocks to base template
+
+[33mcommit ee3d01c6b8e43785b044217b0c610654d9f9777a[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Wed Oct 14 14:26:29 2020 +1300
+
+    added allauth templates and base template
+
+[33mcommit 26d5386e02159975afd23d077f2a8cd360aab001[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Wed Oct 14 13:48:45 2020 +1300
+
+    setup allauth
+
+[33mcommit b46822a350b14109d70f81e51590eca07e33e821[m
+Author: Matthew <matthew.poyner79@gmail.com>
+Date:   Tue Oct 13 11:19:45 2020 +1300
+
+    initial commit
