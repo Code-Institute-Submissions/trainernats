@@ -10,6 +10,9 @@ body {
     font-family: 'Noto Sans', sans-serif;
 }
 
+.nav-item {
+    font-size: 1rem;
+}
 #topnav {
     background: white;
 }
@@ -18,14 +21,26 @@ body {
 }*/
 .logo-font{
     font-family: 'Noto Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
+.classes-summary {
+    margin:15px;
+    background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%);
+    padding-top:15px;
+}
 
+.classes-description{
+    margin:0px 15px 15px;
+}
+
+.class-detail-name{
+
+}
 .main-logo-link img{
-    width: 33%;
-    height: 100%;
+    width: 50px;
+    height: 50px;
     margin: auto;
     display: block;
 }
@@ -41,6 +56,14 @@ body {
     background: white;
     color: black;
     min-width: 260px;
+}
+
+.classes-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 10px;
 }
 
 .btn-black {
@@ -74,7 +97,12 @@ body {
 .text-black {
     color: #000 !important;
 }
-
+/* used to centre the button below brand tagline on index.html */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .border-black {
     border: 1px solid black !important;
 }
@@ -83,11 +111,27 @@ body {
     background: #000 !important;
 }
 
+.container-classes {
+    margin-top:10px;
+    font-family: 'Noto Sans', sans-serif;
+}
 .tagline {
     color:white !important;
 }
 
+.overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: white;
+	z-index: -1;
+}
+
 /* --------------------------------- Media Queries */
+
+
 
 /* Slightly larger container on XL screens */
 @media (min-width: 1200px) {
@@ -97,17 +141,28 @@ body {
 }
 
 /* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
+@media (min-width: 768px) {
     .fixed-desktop-only {
         position: fixed;
         top: 0;
         right: 0;
-        left: 0;2
+        left: 0;
         z-index: 1030;
     }
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 767px) {
+    .header-container {
+        padding-top: 116px;
+    }
+
+    body {
+        height: calc(100vh - 156px);
     }
 }
 

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class TnsclassesConfig(AppConfig):
+class TNS_ClassConfig(AppConfig):
     name = 'tnsclasses'

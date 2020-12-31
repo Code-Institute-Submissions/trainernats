@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div class="overlay"></div>
+    <div class="container text-black">
+        <div class="row">
+            <div class="col col-md-6 col-lg-4 offset-lg-2">
+                {% if the_class.image %}
+                <img class="img-fluid" src="{{ the_class.image.url }}" alt="{{ the_class.name }}">
+                {% else %}
+                <img class="img-fluid" src="{{ MEDIA_URL}}noimage.png" alt="{{ the_class.name }}">
+                {% endif %}
+            </div>
+            <div class="col col-md-6 text-black">
+                <div class="class-detail-name">{{the_class.class_name}}</div>
+                <div>Day: {{the_class.day.friendly_name}}s</div>
+                <div>Time: {{the_class.day.class_time}}</div>
+                <div>Price: £{{the_class.price}}</div>
+            </div>
+        </div>
+    <div class="container full-description">
+        <div class="div further-description-title">Further description</div>
+        <div>
+            {{the_class.class_more_detail}}
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
