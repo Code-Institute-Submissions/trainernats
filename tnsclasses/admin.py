@@ -32,4 +32,3 @@ class TNS_ClassAdmin(admin.ModelAdmin):
 admin.site.register(Day, DayAdmin)
 admin.site.register(Class_Type, Class_TypeAdmin)
 admin.site.register(TNS_Class, TNS_ClassAdmin)
-

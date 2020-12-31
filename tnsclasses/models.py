@@ -45,8 +45,8 @@ class TNS_Class(models.Model):
     class_name = models.CharField(max_length=254)
     class_description = models.TextField()
     class_more_detail = models.TextField(null=True,
-                                        blank=True
-                                        )
+                                         blank=True
+                                         )
     price = models.DecimalField(
                                 max_digits=6,
                                 decimal_places=2
