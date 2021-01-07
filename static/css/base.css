@@ -23,12 +23,6 @@ body {
     font-weight: bold;
 }
 
-.classes-summary {
-    margin:15px;
-    background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%);
-    padding-top:15px;
-}
-
 .classes-description{
     margin:0px 15px 15px;
 }
@@ -47,6 +41,48 @@ body {
     height: 1.5rem;
     width: 1.5rem;
 }
+
+.classes-button2 {
+    position: relative;
+    background-color: white;
+    border: none;
+    font-size: 1rem;
+    color: #FFFFFF;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+.classes-button2:after {
+    content: "";
+    background: red;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 2.8s
+}
+.classes-button2:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 5s
+}
+
+
+
+
+
+
+
 .classes-button {
     background: white;
     color: black;
@@ -86,7 +122,7 @@ body {
 .btn-black:active,
 .btn-black:focus {
     background: #70f0eb;
-    color: white;
+    color: #000;
 }
 
 .text-black {
@@ -150,10 +186,14 @@ body {
 }
 
 .toast-grand-total{
-    background:#70f0eb;
     padding: 15px;
     font-size: 1.25rem;
-    border-top: 1px;
+    border-top-style: solid;
+    border-top-color:green;
+}
+
+.to-checkout{
+    background:#70f0eb;
 }
 
 /* --------------------------------- Media Queries */
@@ -184,6 +224,14 @@ body {
     padding-top: 150px;
     }
 
+}
+
+.classes-summary {
+    margin:15px;
+    background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%);
+    padding-top:15px;
+    /* box-shadow from w3schools: https://www.w3schools.com/css/css3_shadows_box.asp */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*
