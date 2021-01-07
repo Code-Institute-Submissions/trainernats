@@ -4,6 +4,7 @@ certifi==2020.6.20
 chardet==3.0.4
 colorama==0.4.3
 defusedxml==0.6.0
+dj-database-url==0.5.0
 Django==3.1.2
 django-allauth==0.42.0
 flake8==3.8.4
@@ -12,6 +13,8 @@ isort==5.6.3
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
 oauthlib==3.1.0
+Pillow==8.0.1
+psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pyflakes==2.2.0
 pylint==2.6.0

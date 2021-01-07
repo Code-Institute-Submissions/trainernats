@@ -50,7 +50,7 @@
                 </div></a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link"> 
+                <a href="{% url 'home' %}" class="tns-logo nav-link center main-logo-link"> 
                     <img src="{% static 'tns oval.png' %}" alt="tns_logo">
                     </a>
             </div>
@@ -104,7 +104,21 @@
         </div>
     </header>
         {% if messages %}
-        <div class="message-container"></div>
+        <div class="message-container">
+            {% for message in messages %}
+                {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/toasts/toast_error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/toasts/toast_warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/toasts/toast_success.html' %}
+                    {% else %}
+                        {% include 'includes/toasts/toast_info.html' %}
+                    {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </div>
         {% endif %}
 
         {% block page_header %}
@@ -112,8 +126,13 @@
 
         {% block content %}
         {% endblock %}
-
+        <!-- js required to show the toast messages if applicable -->
         {% block postloadjs %}
+        <script>
+            $(document).ready(function(){
+              $('.toast').toast('show');
+            });
+        </script>
         {% endblock %}
         
 

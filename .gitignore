@@ -5,3 +5,4 @@ venv/
 .vscode/
 *.sqlite3
 tatus.txt
+env.py

@@ -1,18 +1,20 @@
 {% load static %}
-<div>
-    <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 d-block d-lg-none">
-        <a href="{% url 'home' %}" class="nav-link main-logo-link"> 
-            <img src="{% static 'tns oval.png' %}" alt="tns_logo">
-            </a>
+<div class="col-12 my-auto py-lg-0 text-center d-block d-lg-none">
+<li  class="list-inline-item">
+    <a href="{% url 'home' %}" class="nav-link main-logo-link">
+        <div>
+        <img class="img-tns" src="{% static 'tns oval.png' %}" alt="tns_logo">
+        <p class="my-0"></p>
     </div>
-</div>
-<div class="col-12 col-sm-4 my-auto py-1 py-lg-0 text-center d-block d-lg-none">
+    </a>
+</li>
+
+<!-- This code is from Code Institute with change the icon -->
 <li class="list-inline-item dropdown">
     <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
-            <div><i class="fas fa-user fa-lg"></i></div>
+            <div><i class="fas fa-heartbeat"></i></div>
             <p class="my-0">My Account</p>
-        </div>
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
@@ -27,10 +29,12 @@
         {% endif %}
     </div>
 </li>
+
+<!-- This code is from Code Institute with change the icon -->
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
         <div class="text-center">
-            <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+            <div><i class="fas fa-shopping-cart fa-lg"></i></div>
             <p class="my-0">
                 {% if grand_total %}
                     ${{ grand_total|floatformat:2 }}

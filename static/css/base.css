@@ -5,7 +5,7 @@ html {
 body {
     background: url("/media/nat arm up edited.jpg") no-repeat center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 200px);
     color: white;
     font-family: 'Noto Sans', sans-serif;
 }
@@ -16,9 +16,7 @@ body {
 #topnav {
     background: white;
 }
-/*#topnav {
-    background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%) ;
-}*/
+
 .logo-font{
     font-family: 'Noto Sans', sans-serif;
     font-size: 1.5rem;
@@ -35,10 +33,7 @@ body {
     margin:0px 15px 15px;
 }
 
-.class-detail-name{
-
-}
-.main-logo-link img{
+.img-tns{
     width: 50px;
     height: 50px;
     margin: auto;
@@ -90,13 +85,14 @@ body {
 .btn-black:hover,
 .btn-black:active,
 .btn-black:focus {
-    background: #222;
+    background: #70f0eb;
     color: white;
 }
 
 .text-black {
     color: #000 !important;
 }
+
 /* used to centre the button below brand tagline on index.html */
 .center {
     display: flex;
@@ -129,9 +125,38 @@ body {
 	z-index: -1;
 }
 
+/* --------------------------------- Bootstrap Toasts */
+.message-container{
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 9999999;
+}
+
+.message-hr{
+    width:75%;
+    margin-top: 2px; ;
+    margin-bottom: 1px
+}
+.custom_toast{
+    overflow: visible;
+}
+.toast-body{
+    padding: 15px 15px 0px;
+}
+
+.toast-capper{
+    height: 2px;
+}
+
+.toast-grand-total{
+    background:#70f0eb;
+    padding: 15px;
+    font-size: 1.25rem;
+    border-top: 1px;
+}
+
 /* --------------------------------- Media Queries */
-
-
 
 /* Slightly larger container on XL screens */
 @media (min-width: 1200px) {
@@ -149,20 +174,69 @@ body {
         left: 0;
         z-index: 1030;
     }
-
-    .header-container {
-        padding-top: 164px;
-    }
+}
+body {
+    padding-top:200px
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 767px) {
-    .header-container {
-        padding-top: 116px;
+@media (max-width: 768px) {
+    .body {
+    padding-top: 150px;
     }
 
+}
+
+/*
+@media (min-width: 1200px) and (max-width:1500px){
+    .header-container {
+        padding-top: 250px;
+    }
     body {
-        height: calc(100vh - 156px);
+        height: calc(100vh - 250px);
     }
 }
 
+@media (min-width: 993px) and (max-width:1200px){
+    .header-container {
+        padding-top: 240px;
+    }
+    body {
+        height: calc(100vh - 240px);
+    }
+}
+
+@media (min-width: 768px)  and (max-width:992px){
+    .header-container {
+    padding-top: 80px;
+    }
+    body {
+        height: calc(100vh - 80px);
+    }
+}
+
+@media (min-width: 662px) and (max-width:768px){
+    .header-container {
+        padding-top: 135px;
+    }
+    body {
+        height: calc(100vh - 135px);
+    }
+}
+
+@media (min-width: 520px) and (max-width:661px){
+    .header-container {
+        padding-top: 135px;
+    }
+    body {
+        height: calc(100vh - 135px);
+    }
+}
+
+@media (min-width: 320px) and (max-width:519px)
+{.header-container {
+    padding-top: 150px;
+    }
+    body {
+        height: calc(100vh - 175px);
+    }
+}
