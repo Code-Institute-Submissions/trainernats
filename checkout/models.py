@@ -5,6 +5,7 @@ from django.db.models import Sum
 from django.conf import settings
 
 
+
 from tnsclasses.models import TNS_Class
 
 
@@ -29,7 +30,11 @@ class Order(models.Model):
                                     null=False,
                                     blank=False
                                     )
-
+    country = models.CharField(
+                               max_length=40,
+                               null=True,
+                               blank=False
+                        )
     postcode = models.CharField(
                                 max_length=20,
                                 null=True,
@@ -96,6 +101,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(
