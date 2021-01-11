@@ -5,10 +5,11 @@ from django.conf import settings
 
 from .models import Order, OrderLineItem
 from tnsclasses.models import TNS_Class
-#from profiles.models import UserProfile
+from memberships.models import UserMembership
 
 import json
 import time
+
 
 class StripeWH_Handler:
     """Handle Stripe webhooks"""
@@ -59,20 +60,20 @@ class StripeWH_Handler:
             if value == "":
                 shipping_details.address[field] = None
 
-        # Update profile information if save_info was checked
-        profile = None
+        # Update membership information if save_info was checked
+        membership = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
-            profile = UserProfile.objects.get(user__username=username)
+            membership = UserMembership.objects.get(user__username=username)
             if save_info:
-                profile.default_phone_number = shipping_details.phone
-                profile.default_country = shipping_details.address.country
-                profile.default_postcode = shipping_details.address.postal_code
-                profile.default_town_or_city = shipping_details.address.city
-                profile.default_street_address1 = shipping_details.address.line1
-                profile.default_street_address2 = shipping_details.address.line2
-                profile.default_county = shipping_details.address.state
-                profile.save()
+                membership.default_phone_number = shipping_details.phone
+                membership.default_country = shipping_details.address.country
+                membership.default_postcode = shipping_details.address.postal_code
+                membership.default_town_or_city = shipping_details.address.city
+                membership.default_street_address1 = shipping_details.address.line1
+                membership.default_street_address2 = shipping_details.address.line2
+                membership.default_county = shipping_details.address.state
+                membership.save()
 
         order_exists = False
         attempt = 1
@@ -107,7 +108,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     full_name=shipping_details.name,
-                    user_profile=profile,
+                    user_membership=membership,
                     email=billing_details.email,
                     phone_number=shipping_details.phone,
                     country=shipping_details.address.country,
