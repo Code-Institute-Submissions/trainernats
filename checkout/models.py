@@ -5,7 +5,6 @@ from django.db.models import Sum
 from django.conf import settings
 
 
-
 from tnsclasses.models import TNS_Class
 
 
@@ -75,6 +74,16 @@ class Order(models.Model):
                                       null=False,
                                       default=0
                                       )
+    original_cart = models.TextField(
+                                    null=False,
+                                    blank=False,
+                                    default=''
+                                    )
+    stripe_pid = models.CharField(
+                                  max_length=254,
+                                  null=False,
+                                  blank=False,
+                                  default='')
 
     def _generate_order_number(self):
         """
