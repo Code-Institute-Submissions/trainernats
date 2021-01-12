@@ -20,17 +20,17 @@ if path.exists("env.py"):
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://869433d6ad27.ngrok.io', '127.0.0.1', 'trainernatssteele.herokuapp.com']
 
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
     'memberships',
 
 
-    #Other
+    # Other
     'crispy_forms',
     'storages',
 ]
@@ -97,7 +97,7 @@ TEMPLATES = [
     },
 ]
 
-    # Store messages in the session
+# Store messages in the session
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 AUTHENTICATION_BACKENDS = [
@@ -191,7 +191,7 @@ if 'USE_AWS' in os.environ:
     
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'trainernatssteele'
-    AWS_S3_REGION_NAME = 'ap-southeast-2' #Asia Pacific (Sydney)
+    AWS_S3_REGION_NAME = 'ap-southeast-2'  #Asia Pacific (Sydney)
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
@@ -210,11 +210,11 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-DEFAULT_FROM_EMAIL = 'matthew.poyner79:gmail.com'
+DEFAULT_FROM_EMAIL = 'matthew.poyner79@gmail.com'
 
 if 'DEVELOPMENT' in os.environ:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
+    DEFAULT_FROM_EMAIL = 'matt@example.com'
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
     EMAIL_USE_TLS = True
