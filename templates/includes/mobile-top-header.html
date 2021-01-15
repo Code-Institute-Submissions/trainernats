@@ -9,7 +9,7 @@
     </a>
 </li>
 
-<!-- This code is from Code Institute with change the icon -->
+<!-- This code is from Code Institute with my icon -->
 <li class="list-inline-item dropdown">
     <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
@@ -21,7 +21,7 @@
             {% if request.user.is_superuser %}
                 <a href="#" class="dropdown-item">Product Management</a>
             {% endif %}
-            <a href="#" class="dropdown-item">My Profile</a>
+            <a href="{% url 'membership' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
         {% else %}
             <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>

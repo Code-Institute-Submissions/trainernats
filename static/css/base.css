@@ -17,12 +17,14 @@ body {
     background: white;
 }
 
-.logo-font{
+.tns-font{
     font-family: 'Noto Sans', sans-serif;
+}
+
+.tns-font-new {
     font-size: 1.5rem;
     font-weight: bold;
 }
-
 .classes-description{
     margin:0px 15px 15px;
 }
@@ -43,18 +45,16 @@ body {
 }
 
 .classes-button {
-    background: white;
-    color: black;
-    min-width: 260px;
-}
-
-.classes-button {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 50px;
     margin-bottom: 10px;
-}
+    border: 1px solid #58d1cd;
+    background: white;
+    color: black;
+    min-width: 230px;
+    }
 
 .btn-black {
     background: white;
@@ -186,64 +186,9 @@ body {
 }
 
 .classes-summary {
-    margin:15px;
+    margin:30px 15px 15px 15px;
     background: linear-gradient(to right, #70f0eb 0%, #f9aca4 100%);
     padding-top:15px;
     /* box-shadow from w3schools: https://www.w3schools.com/css/css3_shadows_box.asp */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-/*
-@media (min-width: 1200px) and (max-width:1500px){
-    .header-container {
-        padding-top: 250px;
-    }
-    body {
-        height: calc(100vh - 250px);
-    }
-}
-
-@media (min-width: 993px) and (max-width:1200px){
-    .header-container {
-        padding-top: 240px;
-    }
-    body {
-        height: calc(100vh - 240px);
-    }
-}
-
-@media (min-width: 768px)  and (max-width:992px){
-    .header-container {
-    padding-top: 80px;
-    }
-    body {
-        height: calc(100vh - 80px);
-    }
-}
-
-@media (min-width: 662px) and (max-width:768px){
-    .header-container {
-        padding-top: 135px;
-    }
-    body {
-        height: calc(100vh - 135px);
-    }
-}
-
-@media (min-width: 520px) and (max-width:661px){
-    .header-container {
-        padding-top: 135px;
-    }
-    body {
-        height: calc(100vh - 135px);
-    }
-}
-
-@media (min-width: 320px) and (max-width:519px)
-{.header-container {
-    padding-top: 150px;
-    }
-    body {
-        height: calc(100vh - 175px);
-    }
 }
