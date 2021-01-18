@@ -15,8 +15,15 @@ def membership(request):
         form = UserMembershipForm(request.POST, instance=membership)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Your details have been updated successfully')
-
+            messages.success(
+                             request,
+                             'Your details have been updated successfully'
+                             )
+        else:
+            messages.error(
+                           request,
+                           'Unable to update info - please check for errors'
+                           )
     form = UserMembershipForm(instance=membership)
     orders = membership.orders.all()
 

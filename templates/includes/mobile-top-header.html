@@ -14,12 +14,16 @@
     <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <div class="text-center">
             <div><i class="fas fa-heartbeat"></i></div>
+            {% if request.user.is_authenticated %}
             <p class="my-0">My Account</p>
+            {% else %}
+            <p class="my-0">Register/Login</p>
+            {% endif %}
     </a>
     <div class="dropdown-menu border-0" aria-labelledby="user-options">
         {% if request.user.is_authenticated %}
             {% if request.user.is_superuser %}
-                <a href="#" class="dropdown-item">Product Management</a>
+                <a href="{% url 'add_class' %}" class="dropdown-item">Class Management</a>
             {% endif %}
             <a href="{% url 'membership' %}" class="dropdown-item">My Profile</a>
             <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
@@ -30,16 +34,16 @@
     </div>
 </li>
 
-<!-- This code is from Code Institute with change the icon -->
+<!-- This code is from Code Institute with change to the icon -->
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
         <div class="text-center">
             <div><i class="fas fa-shopping-cart fa-lg"></i></div>
             <p class="my-0">
                 {% if grand_total %}
-                    ${{ grand_total|floatformat:2 }}
+                    £{{ grand_total|floatformat:2 }}
                 {% else %}
-                    $0.00
+                    £0.00
                 {% endif %}
             </p>
         </div>

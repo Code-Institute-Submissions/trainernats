@@ -48,31 +48,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    margin-bottom: 10px;
     border: 1px solid #58d1cd;
     background: white;
     color: black;
     min-width: 230px;
     }
-
-.btn-black {
-    background: white;
-    color: black;
-}
-
-.btn-outline-black {
-    background: black;
-    color: white !important; /* use important to override link colors for <a> elements */
-    border: 1px solid white;
-}
-
-.btn-outline-black:hover,
-.btn-outline-black:active,
-.btn-outline-black:focus {
-    background: white;
-    color: black !important;
-}
 
 .classes-button:hover,
 .classes-button:active,
@@ -83,6 +63,25 @@ body {
     background: #70f0eb;
     color: #000;
 }
+
+.btn-black {
+    background: #70f0eb;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.btn-outline-black {
+    background: black;
+    color: white !important; /* use important to override link colors for <a> elements */
+}
+
+.btn-outline-black:hover,
+.btn-outline-black:active,
+.btn-outline-black:focus {
+    background: #70f0eb;
+    color: black !important;
+}
+
 
 .text-black {
     color: #000 !important;
@@ -103,7 +102,7 @@ body {
 }
 
 .container-classes {
-    margin-top:10px;
+    margin:10px 0px;
     font-family: 'Noto Sans', sans-serif;
 }
 .tagline {
@@ -148,7 +147,7 @@ body {
     padding: 15px;
     font-size: 1.25rem;
     border-top-style: solid;
-    border-top-color:green;
+    /*border-top-color:green;*/
 }
 
 .to-checkout{

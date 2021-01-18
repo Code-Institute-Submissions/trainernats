@@ -20,13 +20,6 @@
             <div class="bag-notification-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
-                        <div class="col-12 my-1 text-black">
-                            {% if the_class.image %}
-                            <img class="w-100" src="{{ product.the_class.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </div>
                         <div class="col-9">
                             <p class="my-0"><strong>{{ item.product.class_name }}</strong></p>
                             <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>

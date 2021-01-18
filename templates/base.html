@@ -62,17 +62,22 @@
                         <a class="text-black nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <div class="text-center">
                                 <div><i class="fas fa-heartbeat"></i></div>
+                                {% if request.user.is_authenticated %}
                                 <p class="my-0">My Account</p>
+                                {% else %}
+                                <p class="my-0">Register/Login</p>
+                                {% endif %}
                             </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="#" class="dropdown-item">Class Management</a>
+                                    <a href="{% url 'add_class' %}" class="dropdown-item">Class Management</a>
                                 {% endif %}
                                 <a href="{% url 'membership' %}" class="dropdown-item">My Profile</a>
                                 <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
+                            
                                 <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
                                 <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             {% endif %}
