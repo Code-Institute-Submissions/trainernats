@@ -30,9 +30,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://869433d6ad27.ngrok.io', '127.0.0.1', 'trainernatssteele.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'trainernatssteele.herokuapp.com']
 
 
 # Application definition
