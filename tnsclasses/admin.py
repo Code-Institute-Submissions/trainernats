@@ -7,7 +7,6 @@ from .models import Day, TNS_Class, Class_Type
 class DayAdmin(admin.ModelAdmin):
     list_display = (
         'friendly_name',
-        'class_time',
         'pk',
     )
 
@@ -26,6 +25,7 @@ class TNS_ClassAdmin(admin.ModelAdmin):
         'day',
         'class_description',
         'price',
+        'class_time',
     )
 
 

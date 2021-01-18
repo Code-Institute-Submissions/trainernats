@@ -14,18 +14,24 @@
     <div class="container text-black">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
-                {% if the_class.image %}
-                <img class="img-fluid shadow" src="{{ the_class.image.url }}" alt="{{ the_class.name }}">
+                {% if theclass.image %}
+                <img class="img-fluid shadow" src="{{ theclass.image.url }}" alt="{{ theclass.name }}">
                 {% else %}
-                <img class="img-fluid shadow" src="{{ MEDIA_URL}}noimage.png" alt="{{ the_class.name }}">
+                <img class="img-fluid shadow" src="{{ MEDIA_URL}}noimage.png" alt="{{ theclass.name }}">
                 {% endif %}
             </div>
             <div class="col col-md-6 text-black">
-                <div class="class-detail-name">{{the_class.class_name}}</div>
-                <div>Day: {{the_class.day.friendly_name}}s</div>
-                <div>Time: {{the_class.day.class_time}}</div>
-                <div>Price: £{{the_class.price}}</div>
-                <form class="form" action="{% url 'add_to_cart' the_class.id %}" method="POST">
+                <div class="class-detail-name">{{theclass.class_name}}</div>
+                {% if request.user.is_superuser %}
+                <small class="ml-3">
+                    <a href="{% url 'edit_class' theclass.id %}">Edit</a> | 
+                    <a class="text-danger" href="#">Delete</a>
+                </small>
+                {% endif %}
+                <div>Day: {{theclass.day.friendly_name}}s</div>
+                <div>Time: {{theclass.class_time}}</div>
+                <div>Price: £{{theclass.price}}</div>
+                <form class="form" action="{% url 'add_to_cart' theclass.id %}" method="POST">
                     {% csrf_token %}
                     <div class="col-12">
                         <p class="mt-3"><strong>Quantity:</strong></p>
@@ -70,7 +76,7 @@
     <div class="container full-description">
         <div class="div further-description-title">Further description</div>
         <div>
-            {{the_class.class_more_detail}}
+            {{theclass.class_more_detail}}
         </div>
     </div>
 </div>

@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 
 class Day(models.Model):
@@ -9,7 +8,6 @@ class Day(models.Model):
                                     null=True,
                                     blank=True
                                     )
-    class_time = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         return self.day
@@ -24,6 +22,11 @@ class Class_Type(models.Model):
                                 null=True,
                                 blank=True
                                 )
+    friendly_name = models.CharField(
+                                    max_length=254,
+                                    null=True,
+                                    blank=True
+                                    )
 
     def __str__(self):
         return self.class_type
@@ -42,10 +45,14 @@ class TNS_Class(models.Model):
                                     blank=True,
                                     on_delete=models.SET_NULL
                                     )
+    class_time = models.TimeField(
+                                  null=True,
+                                  blank=True,
+                                  )
     class_name = models.CharField(max_length=254)
     class_description = models.TextField()
     class_more_detail = models.TextField(null=True,
-                                         blank=True
+                                         blank=False
                                          )
     price = models.DecimalField(
                                 max_digits=6,
