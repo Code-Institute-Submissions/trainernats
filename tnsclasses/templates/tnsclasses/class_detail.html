@@ -24,7 +24,7 @@
                 <div class="class-detail-name">{{theclass.class_name}}</div>
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a href="{% url 'edit_class' theclass.id %}">Edit</a> | 
+                    <a href="#">Edit</a> | 
                     <a class="text-danger" href="#">Delete</a>
                 </small>
                 {% endif %}
