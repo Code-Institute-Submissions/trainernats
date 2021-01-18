@@ -29,7 +29,7 @@ The user interface  is intuitive with positive or negative feedback provided to 
 1. User registration
 2. User login
 3. User logout
-4. Add recipe
+4. Admin ability to add a new class
 
 
 ### Features for the future
@@ -57,9 +57,7 @@ My site has been tested using Google Chrome Developer tools to ensure that the s
 Tested on the following browsers:
 
 Google Chrome
-Mozilla Firefox
-Internet Explorer
-Safari
+
 
 Manual testing has been carried out by my wife and I using the user stories above.<br><br>
 HTML and CSS has been validated using [W3 HTML validator](https://validator.w3.org)
