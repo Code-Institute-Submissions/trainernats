@@ -43,7 +43,28 @@ body {
     height: 1.5rem;
     width: 1.5rem;
 }
+.btn-edit{
+    border: 1px solid #70f0eb;
+}
 
+.btn-edit:hover,
+.btn-edit:active,
+.btn-edit:focus{
+    background: #70f0eb;
+    color: blue
+}
+
+.btn-delete{
+    border: 1px solid #70f0eb;
+    color: red;
+}
+
+.btn-delete:hover,
+.btn-delete:active,
+.btn-delete:focus{
+    background: #70f0eb;
+    color: red;
+}
 .classes-button {
     display: flex;
     justify-content: center;

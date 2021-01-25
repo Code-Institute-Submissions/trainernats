@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class Day(models.Model):
@@ -46,8 +47,9 @@ class TNS_Class(models.Model):
                                     on_delete=models.SET_NULL
                                     )
     class_time = models.TimeField(
+                                  max_length=30,
                                   null=True,
-                                  blank=True,
+                                  default='00:20'
                                   )
     class_name = models.CharField(max_length=254)
     class_description = models.TextField()

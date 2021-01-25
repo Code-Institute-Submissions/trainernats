@@ -24,8 +24,8 @@
                 <div class="class-detail-name">{{theclass.class_name}}</div>
                 {% if request.user.is_superuser %}
                 <small class="ml-3">
-                    <a href="#">Edit</a> | 
-                    <a class="text-danger" href="#">Delete</a>
+                    <a href="{% url 'edit_class' theclass.id %}" class="btn-edit btn btn-sm text-info">Edit</a> | 
+                    <a href="{% url 'delete_class' theclass.id %}"class="text-danger btn-delete btn btn-sm">Delete</a>
                 </small>
                 {% endif %}
                 <div>Day: {{theclass.day.friendly_name}}s</div>
@@ -76,7 +76,7 @@
     <div class="container full-description">
         <div class="div further-description-title">Further description</div>
         <div>
-            {{theclass.class_more_detail}}
+            {{theclass.class_more_detail|linebreaks}}
         </div>
     </div>
 </div>

@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
-from .models import TNS_Class, Day, TNS_Class
+from .models import TNS_Class, Day
 from .forms import TNS_ClassForm
 
 
@@ -37,7 +37,7 @@ def add_class(request):
     if not request.user.is_superuser:
         messages.error(request, 'Only site administrators can add a new class')
         return redirect(reverse('home'))
-    
+
     if request.method == 'POST':
         form = TNS_ClassForm(request.POST, request.FILES)
         if form.is_valid():
@@ -48,7 +48,7 @@ def add_class(request):
             messages.error(request, 'Could not add this new class - please ensure the form is valid.')
     else:
         form = TNS_ClassForm()
-        
+
     template = 'tnsclasses/add_class.html'
     context = {
         'form': form,
@@ -61,7 +61,7 @@ def add_class(request):
 def edit_class(request, theclass_id):
     """ Edit an existing class """
     if not request.user.is_superuser:
-        messages.error(request, 'Sorry only store owners can do that')
+        messages.error(request, 'Sorry only site admin can do that')
         return redirect(reverse('home'))
 
     theclass = get_object_or_404(TNS_Class, pk=theclass_id)
@@ -72,15 +72,35 @@ def edit_class(request, theclass_id):
             messages.success(request, 'Successfully updated product!')
             return redirect(reverse('class_detail', args=[theclass.id]))
         else:
-            messages.error(request, 'Failed to update product. Please ensure the form is valid.')
+            messages.error(request, 'Failed to update class. Please see errors in red.')
     else:
         form = TNS_ClassForm(instance=theclass)
-        messages.info(request, f'You are editing {theclass.class_name}')
-
+        messages.info(request, f'You are editing {theclass.class_name} {theclass.day.friendly_name} {theclass.class_time}')
+    
     template = 'tnsclasses/edit_class.html'
     context = {
         'form': form,
         'theclass': theclass,
     }
 
+    return render(request, template, context)
+
+
+@login_required
+def delete_class(request, theclass_id):
+    """ Delete a class from the site """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can do that')
+        return redirect(reverse('home'))
+
+    theclass = get_object_or_404(TNS_Class, pk=theclass_id)
+    theclass.delete()
+    messages.success(request, 'Class deleted!')
+
+    all_classes = TNS_Class.objects.all()
+    template = 'tnsclasses/classes.html'
+    context = {
+        'all_classes': all_classes,
+        'template': template,
+    }
     return render(request, template, context)

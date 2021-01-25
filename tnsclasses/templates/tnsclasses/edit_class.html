@@ -32,7 +32,7 @@
                                     {% if field.name != 'image' %}
                                         {{ field | as_crispy_field }}
                                     {% else %}
-                                        {{ field }}
+                                        {{ field|linebreaks }}
                                     {% endif %}
                                 {% endfor %}
                     <div class="row m-2">
