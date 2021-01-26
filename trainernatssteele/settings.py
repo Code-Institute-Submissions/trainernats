@@ -30,9 +30,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', 'https://trainernats2.herokuapp.com/']
+ALLOWED_HOSTS = ['127.0.0.1', 'https://trainernatssteele.herokuapp.com/']
 
 
 # Application definition
@@ -128,15 +128,17 @@ WSGI_APPLICATION = 'trainernatssteele.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-        'default': dj_database_url.parse('postgres://krbvycwkgwgomr:9896cc99b32cb14e0b177503afea8a6523d07ed2cccadc3c3746c871e7e9332d@ec2-52-0-65-165.compute-1.amazonaws.com:5432/d31648rsihn0nn')
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#    }
-#}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
