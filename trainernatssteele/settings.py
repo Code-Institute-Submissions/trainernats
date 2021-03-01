@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', '')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEVELOPMENT' in os.environ
 
-ALLOWED_HOSTS = ['127.0.0.1', 'd6a08236e1d5.ngrok.io']
+ALLOWED_HOSTS = ['127.0.0.1', 'trainernatssteele.herokuapp.com']
 
 
 # Application definition
