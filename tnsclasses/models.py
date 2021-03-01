@@ -45,7 +45,7 @@ class TNS_Class(models.Model):
                                     blank=True,
                                     on_delete=models.SET_NULL
                                     )
-    class_time = models.CharField(
+    class_time = models.TimeField(
                                   max_length=30,
                                   null=True,
                                   blank=True
@@ -57,7 +57,7 @@ class TNS_Class(models.Model):
                                          )
     price = models.DecimalField(
                                 max_digits=6,
-                                decimal_places=2
+                                decimal_places=2,
                                 )
     image_url = models.URLField(
                                 max_length=1024,

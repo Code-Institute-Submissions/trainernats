@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'memberships/css/membership.css' %}">
@@ -26,13 +27,14 @@
         <div class="row">
             <div class="col-12 col-lg-6">
                 <p class="text-muted">Contact details:</p>
-                <form class="mt-3" action="{% url 'membership' %}" method="POST" id="membership-update-form">
+                <form class="mt-3" action="{% url 'membership' %}" novalidate method="POST" id="membership-update-form">
                     {% csrf_token %}
                     {{ form|crispy }}
                     <button class="btn classes-button rounded-0 text-uppercase mt-2">Update Information</button>
                 </form>
             </div>
             <div class="col-12 col-lg-6">
+                <hr class="d-lg-none">
                 <p class="text-muted">Order History</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">

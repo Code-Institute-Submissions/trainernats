@@ -1,52 +1,54 @@
 {% load static %}
 <div class="col-12 my-auto py-lg-0 text-center d-block d-lg-none">
-<li  class="list-inline-item">
-    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-        <div>
-        <img class="img-tns" src="{% static 'tns oval.png' %}" alt="tns_logo">
-        <p class="my-0"></p>
-    </div>
-    </a>
-</li>
+    <ul>
+        <li  class="list-inline-item">
+            <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                <div>
+                <img class="img-tns" src="{% static 'tns oval.png' %}" alt="tns_logo">
+                <p class="my-0"></p>
+            </div>
+            </a>
+        </li>
 
-<!-- This code is from Code Institute with my icon -->
-<li class="list-inline-item dropdown">
-    <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <div class="text-center">
-            <div><i class="fas fa-heartbeat"></i></div>
-            {% if request.user.is_authenticated %}
-            <p class="my-0">My Account</p>
-            {% else %}
-            <p class="my-0">Register/Login</p>
-            {% endif %}
-    </a>
-    <div class="dropdown-menu border-0" aria-labelledby="user-options">
-        {% if request.user.is_authenticated %}
-            {% if request.user.is_superuser %}
-                <a href="{% url 'add_class' %}" class="dropdown-item">Class Management</a>
-            {% endif %}
-            <a href="{% url 'membership' %}" class="dropdown-item">My Profile</a>
-            <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
-        {% else %}
-            <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
-            <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
-        {% endif %}
-    </div>
-</li>
-
-<!-- This code is from Code Institute with change to the icon -->
-<li class="list-inline-item">
-    <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
-        <div class="text-center">
-            <div><i class="fas fa-shopping-cart fa-lg"></i></div>
-            <p class="my-0">
-                {% if grand_total %}
-                    £{{ grand_total|floatformat:2 }}
+        <!-- This code is from Code Institute with my icon -->
+        <li class="list-inline-item dropdown">
+            <a class="text-black nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="text-center">
+                    <div><i class="fas fa-heartbeat"></i></div>
+                    {% if request.user.is_authenticated %}
+                    <p class="my-0">My Account</p>
+                    {% else %}
+                    <p class="my-0">Register/Login</p>
+                    {% endif %}
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                {% if request.user.is_authenticated %}
+                    {% if request.user.is_superuser %}
+                        <a href="{% url 'add_class' %}" class="dropdown-item">Add Class</a>
+                    {% endif %}
+                    <a href="{% url 'membership' %}" class="dropdown-item">My Profile</a>
+                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
-                    £0.00
+                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                 {% endif %}
-            </p>
-        </div>
-    </a>
-</li>
+            </div>
+        </li>
+
+        <!-- This code is from Code Institute with change to the icon -->
+        <li class="list-inline-item">
+            <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="{% url 'view_cart' %}">
+                <div class="text-center">
+                    <div><i class="fas fa-shopping-cart fa-lg"></i></div>
+                    <p class="my-0">
+                        {% if grand_total %}
+                            £{{ grand_total|floatformat:2 }}
+                        {% else %}
+                            £0.00
+                        {% endif %}
+                    </p>
+                </div>
+            </a>
+        </li>
+    </ul>
 </div>

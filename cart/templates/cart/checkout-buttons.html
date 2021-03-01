@@ -1,12 +1,18 @@
-<a href="{% url 'all_classes' %}" class="btn btn-outline-black rounded-0 btn-lg">
+<a href="{% url 'all_classes' %}" class="btn btn-outline-black rounded btn-lg">
     <span class="icon">
         <i class="fas fa-chevron-left"></i>
     </span>
     <span class="text-uppercase">More Classes</span>
 </a>
-<a href="{% url 'checkout' %}" class="btn classes-button rounded-0 btn-lg mt-2">
+{% if request.user.is_authenticated %}
+<a href="{% url 'checkout' %}" class="btn classes-button rounded btn-lg mt-2">
     <span class="text-uppercase">Secure Checkout</span>
     <span class="icon">
         <i class="fas fa-lock"></i>
     </span>
 </a>
+{% else %}
+<a href="{% url 'account_signup' %}" class="btn classes-button rounded btn-lg mt-2">
+<span class="text-uppercase">Please login or create an account to purchase a class</span>
+</a>
+{% endif %} 

@@ -76,7 +76,7 @@ def edit_class(request, theclass_id):
     else:
         form = TNS_ClassForm(instance=theclass)
         messages.info(request, f'You are editing {theclass.class_name} {theclass.day.friendly_name} {theclass.class_time}')
-    
+
     template = 'tnsclasses/edit_class.html'
     context = {
         'form': form,
@@ -84,6 +84,22 @@ def edit_class(request, theclass_id):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def delete_class_confirmation(request, theclass_id):
+    """ View page where deletion of class is possible """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry only site admin can do that')
+        return redirect(reverse('home'))
+
+    theclass = get_object_or_404(TNS_Class, pk=theclass_id)
+
+    context = {
+        'theclass': theclass,
+    }
+
+    return render(request, 'tnsclasses/delete_class_confirmation_page.html', context)
 
 
 @login_required

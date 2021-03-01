@@ -4,12 +4,12 @@
     height: 40px;
     padding: 10px 12px;
     border: 1px solid transparent;
-    border-radius: 0px;
     background-color: white;
     box-shadow: 0 1px 3px 0 #e6ebf1;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
     margin: 10px;
+    font-family: 'Noto Sans', sans-serif;
 }
 
 .StripeElement--focus,
@@ -34,8 +34,7 @@
 #payment-form .form-control,
 #card-element {
     color: #000;
-    border: 1px solid #000;
-    border-radius: 50px;
+    border: 1px solid rgb(136, 134, 134);
 }
 
 #loading-overlay {
@@ -55,4 +54,8 @@
     justify-content: center;
     margin: 0;
     height: 100%;
+}
+
+option{
+    background-color: #f0f2fb;
 }

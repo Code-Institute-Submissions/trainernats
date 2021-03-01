@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from .models import UserMembership
 from .forms import UserMembershipForm
@@ -7,6 +8,7 @@ from .forms import UserMembershipForm
 from checkout.models import Order
 
 
+@login_required
 def membership(request):
     ''' Display the user's membership page '''
     membership = get_object_or_404(UserMembership, user=request.user)
